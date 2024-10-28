@@ -1,0 +1,12 @@
+<svg width="75.000000" height="75.000000" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<pattern id="pattern_1_950" patternContentUnits="objectBoundingBox" width="1.000000" height="1.000000">
+			<use xlink:href="#image1_95_0" transform="matrix(0.013333,0,0,0.013333,0,0)"/>
+		</pattern>
+		<image id="image1_95_0" width="75.000000" height="75.000000" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAABHNCSVQICAgIfAhkiAAAA/5JREFUeJztmk1oJEUUx3+vZzLpXhgCKh6iJDl4ELwvEiNmD1GZdHdyaS+iLC54WWFFXMgu4mY9aFBE8OPkKX5BGAiTqSSI60kJKOtBD87Fi0TIgpcVFkln2fTzsCMOmkky05PpNqnfpXv6VVe/+U/1m1evCiwWi8VisVgsFovFYrFYLBaLxWI5NJK1A3tRqVRGC4XCJRGZVtX7ReR3VV0rFAoLtVrt16z8yp1Y09PTTzmOUwXKe5hvicgz9Xr9y377BeBk8dB2VCqVURFZ4q5Qa8Bp13XLwOnm57KqLs3Ozo5l4V8xi4e2o1gszqnqELBujPFbTNcBPwgCA/hJklwGXuy3f7kaWapaaR6vtmnyRtP+dN+caiFXYgEPAHie9+NeRtd1f2qeDvfNoxbyJlYBoFqt3t7L2HK90DePWsibWLnGitUBVqwOsGJ1gBWrA6xYHWDF6gArVgfkRizf9yeapzcOaHoLIAzDvmfxqSfSURR5cRzPAc8CY6TPrhcPsP8AnFHVs8CbAJOTk8VyufwWcBa4r819WyLy+eDg4GvtZggHkUqsIAhObW9vXxOR8TT9NNlS1UXP8+b3ayQi76rqGeBKGIYKLCZJcgF49YD+h1X1YhzHu8ClbhxMVfzzff+KiMwDm47jnCuVSt90+6t1QhAEV4HX/31dRCbq9frGXvfMzMyMJ0myAdwwxnT1CqcSKwiCX4CHHMeZWllZ+TpNX53i+35FRF7hbmGwDGCM2ff7BEGgh2nXjrQxawSgVCp9l7KfjlldXV0H1uEfEY6atP+GmwBxHPciZuWetGJ92jx+HIbhVBRFpbQO5ZlUr6GIvKeqF4ARVf0qjmOCIPhPu25jRN7oemRFUVRSVQPc00N/ck3XIyuO44vAE/Q5bciSNK/hcwCO45zrd9qQFWkC/ChkkzZkRRqxfoOTkzZACrFU9ZPm6YlIGyBFzPI87+2dnZ0nVfXx/dIGsKkD1Wr1dpIkH/XSmbzT9ciKomgojuO/xXp/YGBgYXl5+aDC3f+aNHnWNHAvsGGMeRnoy2Q2S9IE+BEAEfmeEyAU9CB1SJLkUXK4g/Ao6FqsYrG4BtwUkfEwDD/IYgGh33Qds2q12h9BELwALKnqeeC8TR32wRhTAyYAA9zsiUc5JvW6oTHmujEmFJF3mpc2HceZcl130Bgjx2VUQQ834Krq83C8qxC9XJEeg+NdheilWMe+CtFLsT5rHjOrQrTsl9jP1vWUrGfBt7nn4RrwWK/67ICfgUcO2XbBGNPV8n3Ptkg3Go07w8PDX5RKpTsi8iAwxNHu0vkT+BZ4yXXdud3dXRd4GDjVpv2Wqn7oed58o9HYPUK/LBaLxWKxWCwWSy74C29rRxFmBH/HAAAAAElFTkSuQmCC"/>
+	</defs>
+	<rect id="icon-like.png" rx="-0.500000" width="74.000000" height="74.000000" transform="translate(0.500000 0.500000)" fill="url(#pattern_1_950)" fill-opacity="1.000000"/>
+</svg>
