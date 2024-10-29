@@ -1,5 +1,7 @@
-import Features from "./components/sections/Features"
-import Footer from "./components/sections/Footer"
+import CreateForm from "./components/CreateForm"
+import Features from "./components/Features"
+import Footer from "./components/Footer"
+import List from "./components/List"
 import TextBlock from "./components/TextBlock"
 import Tsparticles from "./components/Tsparticles"
 
@@ -16,16 +18,7 @@ const HomePage = () => {
 						Paste the URL to be shortened
 					</h2>
 
-					<div className="flex flex-col gap-4 md:gap-0 md:flex-row items-center mt-[1.5rem] max-w-[90%] mx-auto">
-						<input
-							type="text"
-							placeholder="Enter the link here..."
-							className="p-[1.5rem] rounded-sm border border-gray-400 w-full flex-1"
-						/>
-						<button className=" p-[1.5rem] w-full md:w-max text-xl bg-blue-dark text-white font-bold hover:bg-blue-light transition-all duration-300">
-							Shorten Url
-						</button>
-					</div>
+					<CreateForm />
 
 					<p className="text-center max-w-[550px] mt-[1.5rem] mx-auto text-[1.1rem]">
 						ShortURL is a free tool to shorten URLs and generate short links
@@ -33,6 +26,8 @@ const HomePage = () => {
 						share
 					</p>
 				</div>
+
+				<List />
 
 				<div className='flex flex-col items-center bg-white  shadow-md mt-[3rem] py-[1.2rem] px-[1rem] md:px-[5.5rem]"'>
 					<h2 className="text-[2rem] text-gray-bold font-bold">

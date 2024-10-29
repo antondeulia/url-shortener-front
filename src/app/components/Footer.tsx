@@ -1,35 +1,5 @@
+import { footerLinks } from "@/constants"
 import Link from "next/link"
-
-const footerLinks: { name: string; href: string }[] = [
-	{
-		name: "ShortURL",
-		href: ""
-	},
-	{
-		name: "URL Click Counter",
-		href: ""
-	},
-	{
-		name: "Unshorten URL",
-		href: ""
-	},
-	{
-		name: "Report Mailicous URL",
-		href: ""
-	},
-	{
-		name: "Terms of Service",
-		href: ""
-	},
-	{
-		name: "Privacy",
-		href: ""
-	},
-	{
-		name: "Contact",
-		href: ""
-	}
-]
 
 const Footer = () => {
 	return (

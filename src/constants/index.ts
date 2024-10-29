@@ -1,6 +1,37 @@
-import Feature, { FeatureProps } from "../Feature"
+import { FeatureProps } from "@/app/components/Feature"
 
-const featuresData: FeatureProps[] = [
+export const footerLinks: { name: string; href: string }[] = [
+	{
+		name: "ShortURL",
+		href: ""
+	},
+	{
+		name: "URL Click Counter",
+		href: ""
+	},
+	{
+		name: "Unshorten URL",
+		href: ""
+	},
+	{
+		name: "Report Mailicous URL",
+		href: ""
+	},
+	{
+		name: "Terms of Service",
+		href: ""
+	},
+	{
+		name: "Privacy",
+		href: ""
+	},
+	{
+		name: "Contact",
+		href: ""
+	}
+]
+
+export const featuresData: FeatureProps[] = [
 	{
 		name: "Easy",
 		desc: "ShortURL is easy and fast, enter the long link to get your shortened link",
@@ -32,15 +63,3 @@ const featuresData: FeatureProps[] = [
 		icon: "/responsive.svg"
 	}
 ]
-
-const Features = () => {
-	return (
-		<div className="flex flex-wrap flex-col md:flex-row mt-[4rem] mb-[3rem] gap-2 justify-between bg-white shadow-md py-[1.2rem] px-[1rem] md:px-[5.5rem]">
-			{featuresData.map(feature => (
-				<Feature key={feature.name} feature={feature} />
-			))}
-		</div>
-	)
-}
-
-export default Features
