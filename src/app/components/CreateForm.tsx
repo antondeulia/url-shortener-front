@@ -1,22 +1,27 @@
 "use client"
 
+import { useShortenedUrlsStore } from "@/store/shortenedUrls"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
 import { z } from "zod"
 
 const createFormSchema = z.object({
-	origin: z.string()
+	origin: z.string().url()
 })
 
 const CreateForm = () => {
+	const addShortenedUrl = useShortenedUrlsStore(state => state.addShortenedUrl)
+
 	const {
 		register,
 		handleSubmit,
 		reset,
+		clearErrors,
 		formState: { errors }
 	} = useForm({
-		resolver: zodResolver(createFormSchema)
+		resolver: zodResolver(createFormSchema),
+		mode: "onChange"
 	})
 
 	const onSubmit = async (data: any) => {
@@ -25,13 +30,23 @@ const CreateForm = () => {
 			body: JSON.stringify(data),
 			headers: {
 				"Content-Type": "application/json",
-				Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczMDIzMjk5NywiZXhwIjoxNzMwMjM2NTk3fQ.o0KrBlD0EoXIL9d-jcbOcXMiP7EyJbf9odVCWRzIo2Y`
+				Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczMDI0MDA2OCwiZXhwIjoxNzMwMzI2NDY4fQ._cOe1SbJ6_9YlvJArTHF_VaYGS-jmQ4CDlKVYxsmIWk`
 			}
 		})
 
 		if (res.status === 201) {
+			const newUrlData = await res.json()
+			addShortenedUrl(newUrlData)
+
 			toast.success("Item was created successfully")
 			reset()
+			clearErrors()
+		} else {
+			const error = await res.json()
+
+			error?.message?.map((message: string) => {
+				toast.error(message)
+			})
 		}
 	}
 
@@ -52,7 +67,7 @@ const CreateForm = () => {
 				</span>
 			)}
 
-			<button className=" p-[1.5rem] w-full md:w-max text-xl bg-blue-dark text-white font-bold hover:bg-blue-light transition-all duration-300">
+			<button className="p-[1.5rem] w-full md:w-max text-xl bg-blue-dark text-white font-bold hover:bg-blue-light transition-all duration-300">
 				Shorten Url
 			</button>
 		</form>

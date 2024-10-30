@@ -29,7 +29,7 @@ const HomePage = () => {
 
 				<List />
 
-				<div className='flex flex-col items-center bg-white  shadow-md mt-[3rem] py-[1.2rem] px-[1rem] md:px-[5.5rem]"'>
+				<div className='flex flex-col items-center bg-white  shadow-md mt-[2rem] py-[1.2rem] px-[1rem] md:px-[5.5rem]"'>
 					<h2 className="text-[2rem] text-gray-bold font-bold">
 						Want More? Try Premium Features!
 					</h2>
@@ -45,7 +45,7 @@ const HomePage = () => {
 					</button>
 				</div>
 
-				<div className="mt-[3rem] flex flex-col gap-6 bg-white shadow-md py-[1.2rem] px-[1rem] md:px-[5.5rem]">
+				<div className="mt-[2rem] flex flex-col gap-6 bg-white shadow-md py-[1.2rem] px-[1rem] md:px-[5.5rem]">
 					<TextBlock
 						title="Simple and fast URL shortener!"
 						text="ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites. Just paste the long URL and click the Shorten URL button. On the next page, copy the shortened URL and share it on sites, chat and emails. After shortening the URL, check how many clicks it received."

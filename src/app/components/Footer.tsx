@@ -12,7 +12,7 @@ const Footer = () => {
 				<nav className="mb-[20px] md:mb-[60px]">
 					<ul className="flex flex-wrap gap-2 md:gap-0 items-center text-xl justify-between text-blue-default">
 						{footerLinks.map(link => (
-							<li className="hover:underline">
+							<li key={link.name} className="hover:underline">
 								<Link href={link.href}>{link.name}</Link>
 							</li>
 						))}

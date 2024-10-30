@@ -27,7 +27,7 @@ export default function Layout({
 				<Footer />
 				<ScrollArrow />
 
-				<ToastContainer position="top-right" />
+				<ToastContainer position="top-right" limit={3} newestOnTop />
 			</body>
 		</html>
 	)
