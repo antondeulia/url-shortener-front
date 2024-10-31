@@ -5,6 +5,7 @@ import List from "../../components/List"
 import TextBlock from "../../components/TextBlock"
 import WantMore from "@/components/WantMore"
 import SignedIn from "@/components/SignedIn"
+import SignedOut from "@/components/SignedOut"
 
 const HomePage = () => {
 	return (
@@ -30,9 +31,9 @@ const HomePage = () => {
 
 				<List />
 
-				<SignedIn>
+				<SignedOut>
 					<WantMore />
-				</SignedIn>
+				</SignedOut>
 
 				<div className="mt-[2rem] flex flex-col gap-6 bg-white shadow-md py-[1.2rem] px-[1rem] md:px-[5.5rem]">
 					<TextBlock

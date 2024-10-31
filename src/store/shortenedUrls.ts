@@ -1,3 +1,4 @@
+import fetchWithAuth from "@/utils"
 import { IShortenedUrl } from "@/utils/interfaces/shortenedUrl"
 import { create } from "zustand"
 
@@ -24,13 +25,8 @@ export const useShortenedUrlsStore = create<ShortenedUrlsStore>(set => ({
 			]
 		})),
 	fetchShortenedUrls: async () => {
-		const res = await fetch(`http://localhost:4200`, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization:
-					"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczMDI0MDA2OCwiZXhwIjoxNzMwMzI2NDY4fQ._cOe1SbJ6_9YlvJArTHF_VaYGS-jmQ4CDlKVYxsmIWk"
-			}
+		const res = await fetchWithAuth(process.env.NEXT_PUBLIC_BACKEND_URL as string, {
+			method: "GET"
 		})
 		if (res.status === 200) {
 			const data: IShortenedUrl[] = await res.json()

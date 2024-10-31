@@ -76,7 +76,6 @@ const SignUpPage = () => {
 				router.push("/")
 			} else {
 				if (typeof data.message === "string") {
-					console.log(data.message)
 					toast.error(data.message)
 				} else {
 					data.message.forEach((msg: string) => {

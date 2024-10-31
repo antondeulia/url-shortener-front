@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
 import type { Container, Engine } from "@tsparticles/engine"
-import { loadSlim } from "@tsparticles/slim" // Загружаем slim версию
+import { loadSlim } from "@tsparticles/slim"
 
 const Tsparticles = () => {
 	const [init, setInit] = useState(false)

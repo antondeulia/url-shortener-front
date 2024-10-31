@@ -1,6 +1,7 @@
 "use client"
 
 import { useShortenedUrlsStore } from "@/store/shortenedUrls"
+import fetchWithAuth from "@/utils"
 import Image from "next/image"
 import { toast } from "react-toastify"
 
@@ -9,14 +10,12 @@ const Delete = ({ id }: { id: number }) => {
 
 	const handleDelete = async () => {
 		try {
-			const res = await fetch(`http://localhost:4200/${id}`, {
-				method: "DELETE",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization:
-						"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczMDI0MDA2OCwiZXhwIjoxNzMwMzI2NDY4fQ._cOe1SbJ6_9YlvJArTHF_VaYGS-jmQ4CDlKVYxsmIWk"
+			const res = await fetchWithAuth(
+				process.env.NEXT_PUBLIC_BACKEND_URL + "/" + id,
+				{
+					method: "DELETE"
 				}
-			})
+			)
 
 			if (res.status === 200) {
 				deleteShortenedUrl(id)

@@ -4,11 +4,18 @@ import ScrollArrow from "../../components/ScrollToTop"
 import Tsparticles from "../../components/Tsparticles"
 import { ReactNode } from "react"
 import CheckAuth from "@/components/CheckAuth"
+import Navbar from "@/components/Navbar"
+import SignedIn from "@/components/SignedIn"
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
 	return (
-		<div>
+		<div className="relative">
 			<Tsparticles />
+
+			<SignedIn>
+				<Navbar />
+			</SignedIn>
+
 			{children}
 			<Footer />
 			<ScrollArrow />

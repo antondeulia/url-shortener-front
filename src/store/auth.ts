@@ -15,7 +15,7 @@ export const useAuthStore = create<AuthStore>(set => ({
 
 	setIsAuthenticated: value => set({ isAuthenticated: value }),
 	checkAuth: () => {
-		const token = localStorage.getItem("accessToken") // Или куки, если используете их
+		const token = localStorage.getItem("accessToken")
 		if (token) {
 			set({ isAuthenticated: true })
 		} else {
@@ -26,7 +26,5 @@ export const useAuthStore = create<AuthStore>(set => ({
 		set(state => ({
 			isTermsAgree: !state.isTermsAgree
 		}))
-
-		console.log("trigger")
 	}
 }))
