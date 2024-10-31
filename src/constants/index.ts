@@ -1,4 +1,4 @@
-import { FeatureProps } from "@/app/components/Feature"
+import { FeatureProps } from "@/components/Feature"
 
 export const footerLinks: { name: string; href: string }[] = [
 	{

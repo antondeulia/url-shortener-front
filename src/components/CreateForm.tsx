@@ -1,6 +1,7 @@
 "use client"
 
 import { useShortenedUrlsStore } from "@/store/shortenedUrls"
+import fetchWithAuth from "@/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
@@ -18,20 +19,17 @@ const CreateForm = () => {
 		handleSubmit,
 		reset,
 		clearErrors,
-		formState: { errors }
+		formState: { dirtyFields, errors }
 	} = useForm({
 		resolver: zodResolver(createFormSchema),
-		mode: "onChange"
+		mode: "onChange",
+		reValidateMode: "onBlur"
 	})
 
 	const onSubmit = async (data: any) => {
-		const res = await fetch(`http://localhost:4200`, {
+		const res = await fetchWithAuth(process.env.NEXT_PUBLIC_BACKEND_URL as string, {
 			method: "POST",
-			body: JSON.stringify(data),
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczMDI0MDA2OCwiZXhwIjoxNzMwMzI2NDY4fQ._cOe1SbJ6_9YlvJArTHF_VaYGS-jmQ4CDlKVYxsmIWk`
-			}
+			body: JSON.stringify(data)
 		})
 
 		if (res.status === 201) {

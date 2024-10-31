@@ -3,6 +3,7 @@
 import React, { useEffect } from "react"
 import ShortenedUrl from "./ShortenedUrl"
 import { useShortenedUrlsStore } from "@/store/shortenedUrls"
+import Image from "next/image"
 
 const List = () => {
 	const shortenedUrls = useShortenedUrlsStore(state => state.shortenedUrls)
@@ -13,19 +14,23 @@ const List = () => {
 	}, [shortenedUrls])
 
 	return (
-		<div className="flex flex-col mt-[2rem] mb-[3rem] gap-2 justify-between bg-white shadow-md py-[1.2rem] px-[1rem]">
-			{shortenedUrls.length > 0 ? (
-				<ul className="flex flex-col gap-4">
+		<div className="mt-[2rem] mb-[3rem] justify-between bg-white shadow-md py-[1.2rem] px-[1rem]">
+			{shortenedUrls.length ? (
+				<ul className="flex flex-col gap-2 min-h-[300px]">
 					{shortenedUrls.map((shortenedUrl, index) => (
-						<ShortenedUrl
-							key={shortenedUrl.id}
-							shortenedUrl={shortenedUrl}
-							index={index}
-						/>
+						<li>
+							<ShortenedUrl
+								key={shortenedUrl.id}
+								shortenedUrl={shortenedUrl}
+								index={index}
+							/>
+						</li>
 					))}
 				</ul>
 			) : (
-				<p>The list is empty.</p>
+				<div className="relative w-[400px] h-[300px] mx-auto">
+					<Image src="/Designer (1).jpeg" alt="empty" fill />
+				</div>
 			)}
 		</div>
 	)

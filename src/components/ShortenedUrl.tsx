@@ -3,6 +3,8 @@ import Link from "next/link"
 import { toast } from "react-toastify"
 import Delete from "./Delete"
 import { MotionDiv } from "./MotionDiv"
+import MobileDots from "./MobileDots"
+import Copy from "./Copy"
 
 type ShortenedUrlProps = {
 	id: number
@@ -38,7 +40,9 @@ const ShortenedUrl = ({
 	}
 
 	return (
-		<MotionDiv className={`flex items-center ${backgroundColorClass} py-2 px-4`}>
+		<MotionDiv
+			className={`flex items-center ${backgroundColorClass} py-2 px-4 relative`}
+		>
 			<Link
 				target="_blank"
 				href={`${url}`}
@@ -47,17 +51,10 @@ const ShortenedUrl = ({
 				{url}
 			</Link>
 
-			<p className="flex-1 text-gray-500">{origin}</p>
+			<p className="hidden md:block flex-1 text-gray-500">{origin}</p>
 
-			<div className="flex flex-2 gap-5 items-center">
-				<Image
-					className="cursor-pointer"
-					src="/copy.svg"
-					alt="copy"
-					width={25}
-					height={25}
-					onClick={handleCopy}
-				/>
+			<div className="hidden md:flex flex-2 gap-5 items-center">
+				<Copy url={url} />
 				<Image
 					className="cursor-pointer"
 					src="/edit.svg"
@@ -67,6 +64,8 @@ const ShortenedUrl = ({
 				/>
 				<Delete id={id} />
 			</div>
+
+			<MobileDots id={id} url={url} />
 		</MotionDiv>
 	)
 }
