@@ -1,17 +1,23 @@
-import fetchWithAuth from "@/utils"
+"use client"
+
+import { fetchWithAuth } from "@/utils"
 import { IShortenedUrl } from "@/utils/interfaces/shortenedUrl"
 import { create } from "zustand"
 
 type ShortenedUrlsStore = {
 	shortenedUrls: IShortenedUrl[]
+	shortenedUrlsFromLs: any[]
 	setShortenedUrls: (data: IShortenedUrl[]) => void
 	addShortenedUrl: (data: IShortenedUrl) => void
 	deleteShortenedUrl: (id: number) => void
 	fetchShortenedUrls: () => Promise<void>
+	addShortenedUrlFromLs: (data: any) => void
+	getShortenedUrlsFromLs: () => void
 }
 
 export const useShortenedUrlsStore = create<ShortenedUrlsStore>(set => ({
 	shortenedUrls: [],
+	shortenedUrlsFromLs: [],
 
 	setShortenedUrls: (data: IShortenedUrl[]) => set({ shortenedUrls: data }),
 	addShortenedUrl: newUrl =>
@@ -40,5 +46,18 @@ export const useShortenedUrlsStore = create<ShortenedUrlsStore>(set => ({
 		} else {
 			throw new Error("Unable to fetch your data")
 		}
-	}
+	},
+	addShortenedUrlFromLs: (newUrl: any) =>
+		set(state => ({
+			shortenedUrlsFromLs: [...state.shortenedUrlsFromLs, newUrl]
+		})),
+	getShortenedUrlsFromLs: () =>
+		set(() => {
+			const shortenedUrls = localStorage
+				.getItem("shortenedUrls")
+				?.split(" ")
+				.map(url => JSON.parse(url))
+
+			return { shortenedUrlsFromLs: shortenedUrls }
+		})
 }))

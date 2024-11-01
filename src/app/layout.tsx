@@ -21,7 +21,12 @@ export default function Layout({
 			<body className={asap.className}>
 				{children}
 
-				<ToastContainer position="top-right" limit={3} newestOnTop />
+				<ToastContainer
+					position="top-right"
+					limit={3}
+					autoClose={1500}
+					newestOnTop
+				/>
 			</body>
 		</html>
 	)

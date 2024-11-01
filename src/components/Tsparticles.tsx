@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
-import type { Container, Engine } from "@tsparticles/engine"
+import type { Engine } from "@tsparticles/engine"
 import { loadSlim } from "@tsparticles/slim"
 
 const Tsparticles = () => {
@@ -15,8 +15,6 @@ const Tsparticles = () => {
 			setInit(true)
 		})
 	}, [])
-
-	const particlesLoaded = (container: Container) => {}
 
 	return (
 		<>
@@ -47,7 +45,7 @@ const Tsparticles = () => {
 								value: "#5088ff"
 							},
 							links: {
-								color: "#FF7A00",
+								color: "#1e2491",
 								distance: 150,
 								enable: true,
 								opacity: 0.5,
@@ -60,14 +58,14 @@ const Tsparticles = () => {
 									default: "bounce"
 								},
 								random: false,
-								speed: 4,
+								speed: 2,
 								straight: false
 							},
 							number: {
 								density: {
 									enable: true
 								},
-								value: 120
+								value: 100
 							},
 							opacity: {
 								value: 0.5

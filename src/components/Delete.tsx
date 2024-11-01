@@ -1,7 +1,7 @@
 "use client"
 
 import { useShortenedUrlsStore } from "@/store/shortenedUrls"
-import fetchWithAuth from "@/utils"
+import { fetchWithAuth } from "@/utils"
 import Image from "next/image"
 import { toast } from "react-toastify"
 

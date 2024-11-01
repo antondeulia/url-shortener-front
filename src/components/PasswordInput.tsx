@@ -6,13 +6,11 @@ import Image from "next/image"
 import { UseFormRegister } from "react-hook-form"
 
 const PasswordInput = ({
-	ref,
 	register,
 	errors
 }: {
-	ref: React.RefObject<HTMLInputElement>
 	register: UseFormRegister<any>
-	errors: any
+	errors?: any
 }) => {
 	const [isShow, setIsShow] = useState(false)
 
@@ -20,9 +18,7 @@ const PasswordInput = ({
 		<div className="relative">
 			<Input
 				{...register("password")}
-				className="w-full"
 				type={isShow ? "text" : "password"}
-				name="password"
 				placeholder="Password*"
 				errors={errors}
 			/>
