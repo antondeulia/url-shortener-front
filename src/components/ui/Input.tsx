@@ -6,7 +6,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({ errors, ...props }) => {
 	return (
-		<div>
+		<div className="relative">
 			<input
 				className={`border border-gray-500 focus:border-blue-default focus:border-2 focus:outline-none ${
 					errors ? "border-red-500" : ""
@@ -19,7 +19,11 @@ const Input: React.FC<InputProps> = ({ errors, ...props }) => {
 				}}
 				{...props}
 			/>
-			{errors && <span className="text-red-500">{errors.message}</span>}{" "}
+			{errors && (
+				<span className="text-red-500 absolute top-[59px] left-0">
+					{errors.message}
+				</span>
+			)}{" "}
 		</div>
 	)
 }

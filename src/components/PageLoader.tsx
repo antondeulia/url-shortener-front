@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-const Loader = () => {
+const PageLoader = () => {
 	return (
 		<div className="h-screen w-full flex justify-center items-center">
 			<Image src="/loader.gif" alt="loader" width={50} height={50} />
@@ -8,4 +8,4 @@ const Loader = () => {
 	)
 }
 
-export default Loader
+export default PageLoader

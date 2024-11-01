@@ -1,14 +1,16 @@
 "use client"
 
+import Loader from "@/components/PageLoader"
 import PasswordInput from "@/components/PasswordInput"
 import TermsCheckbox from "@/components/TermsCheckbox"
 import Input from "@/components/ui/Input"
 import RightArrowIcon from "@/components/ui/RightArrowIcon"
 import { useAuthStore } from "@/store/auth"
 import { zodResolver } from "@hookform/resolvers/zod"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
 import { z } from "zod"
@@ -32,6 +34,7 @@ const SignUpPage = () => {
 	const lastNameRef = useRef<HTMLInputElement>(null)
 	const emailRef = useRef<HTMLInputElement>(null)
 	const passwordRef = useRef<HTMLInputElement>(null)
+	const [isLoading, setIsLoading] = useState(false)
 
 	const router = useRouter()
 
@@ -57,6 +60,11 @@ const SignUpPage = () => {
 	const isTermsAgree = useAuthStore(state => state.isTermsAgree)
 
 	const onSubmit = async (formData: SignUpForm) => {
+		console.log(isLoading)
+		setIsLoading(true)
+
+		console.log(isLoading)
+
 		try {
 			const res = await fetch(
 				process.env.NEXT_PUBLIC_BACKEND_URL + "/auth/sign-up",
@@ -90,6 +98,8 @@ const SignUpPage = () => {
 			toast.error("Unable to sign up")
 			throw new Error("Unable to sign up")
 		}
+
+		setIsLoading(false)
 	}
 
 	const isButtonDisabled = !isTermsAgree || !isValid
@@ -143,7 +153,17 @@ const SignUpPage = () => {
 							}`}
 							disabled={isButtonDisabled}
 						>
-							Create new account
+							{isLoading ? (
+								<Image
+									className="mx-auto"
+									src="/rolling.gif"
+									alt="rolling"
+									width={40}
+									height={40}
+								/>
+							) : (
+								<>Create new account</>
+							)}
 						</button>
 						<Link
 							href="/"
