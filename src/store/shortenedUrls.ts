@@ -6,20 +6,18 @@ import { create } from "zustand"
 
 type ShortenedUrlsStore = {
 	shortenedUrls: IShortenedUrl[]
-	shortenedUrlsFromLs: IShortenedUrl[]
-
 	setShortenedUrls: (data: IShortenedUrl[]) => void
 	addShortenedUrl: (data: IShortenedUrl) => void
 	deleteShortenedUrl: (id: number) => void
 	fetchShortenedUrls: () => Promise<void>
-	addShortenedUrlFromLs: (data: any) => void
-	getShortenedUrlsFromLs: () => void
+
+	isOpen: boolean
+	open: () => void
+	close: () => void
 }
 
 export const useShortenedUrlsStore = create<ShortenedUrlsStore>(set => ({
 	shortenedUrls: [],
-	shortenedUrlsFromLs: [],
-
 	setShortenedUrls: (data: IShortenedUrl[]) => set({ shortenedUrls: data }),
 	addShortenedUrl: newUrl =>
 		set(state => ({
@@ -48,26 +46,17 @@ export const useShortenedUrlsStore = create<ShortenedUrlsStore>(set => ({
 			throw new Error("Unable to fetch your data")
 		}
 	},
-	addShortenedUrlFromLs: (newUrl: any) =>
-		set(state => {
-			return {
-				shortenedUrlsFromLs: [...(state.shortenedUrlsFromLs || []), newUrl]
-			}
-		}),
-	getShortenedUrlsFromLs: () => {
-		const shortenedUrls = localStorage
-			.getItem("shortenedUrls")
-			?.split(" ")
-			.map(url => JSON.parse(url))
 
-		set(state => {
-			if (
-				JSON.stringify(state.shortenedUrlsFromLs) !==
-				JSON.stringify(shortenedUrls)
-			) {
-				return { shortenedUrlsFromLs: shortenedUrls }
-			}
-			return state
+	isOpen: false,
+	open: () => {
+		return set(state => {
+			console.log(state.isOpen)
+
+			return { isOpen: true }
 		})
-	}
+	},
+	close: () =>
+		set({
+			isOpen: false
+		})
 }))

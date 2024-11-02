@@ -16,8 +16,8 @@ const Copy = ({ url }: { url: string }) => {
 			className="cursor-pointer"
 			src="/copy.svg"
 			alt="copy"
-			width={25}
-			height={25}
+			width={20}
+			height={20}
 			onClick={handleCopy}
 		/>
 	)

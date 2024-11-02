@@ -35,8 +35,8 @@ const Delete = ({ id }: { id: number }) => {
 			className="cursor-pointer"
 			src="/delete.svg"
 			alt="delete"
-			width={25}
-			height={25}
+			width={20}
+			height={20}
 			onClick={handleDelete}
 		/>
 	)

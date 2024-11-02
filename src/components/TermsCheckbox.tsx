@@ -14,7 +14,7 @@ const TermsCheckbox = () => {
 				checked={isTermsAgree}
 				onChange={toggleTermsAgree}
 			/>
-			<p className="text-[1rem] md:text-[1.3rem]">
+			<p className="text-sm">
 				I agree to the <b>Terms of Service</b> and <b>Privacy Policy.</b>
 			</p>
 		</div>

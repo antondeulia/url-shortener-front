@@ -6,11 +6,11 @@ const AuthSidebar = () => {
 					URL SHORTENER
 				</span>
 
-				<h1 className="text-[4rem] mt-[10rem]">
+				<h1 className="text-[2.5rem] mt-[10rem]">
 					<span className="text-blue-default font-bold">Url Shortener.</span>{" "}
 					Fully managed url shortener{" "}
 				</h1>
-				<p className="text-[1.7rem] mt-[2rem] text-gray-500">
+				<p className="text-[1.1rem] mt-[2rem] text-gray-500">
 					Get ready for higher performance, free usage, and <br /> greater ease
 					of use.
 				</p>

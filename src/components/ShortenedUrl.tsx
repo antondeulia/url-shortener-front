@@ -1,7 +1,5 @@
 import Link from "next/link"
 import Delete from "./Delete"
-import { MotionDiv } from "./MotionDiv"
-import MobileDots from "./MobileDots"
 import Copy from "./Copy"
 import Image from "next/image"
 
@@ -36,19 +34,17 @@ const ShortenedUrl = ({
 	}
 
 	return (
-		<MotionDiv
-			className={`flex items-center ${backgroundColorClass} py-2 px-4 relative`}
-		>
+		<div className={`flex items-center ${backgroundColorClass} py-2 px-4 relative`}>
 			{shortenedUrl && (
 				<>
 					<Link
 						target="_blank"
 						href={`${shortenedUrl.url}`}
-						className="flex flex-1 gap-2 items-center text-blue-default hover:underline w-max"
+						className=" text-sm flex flex-1 gap-2 items-center text-blue-default hover:underline w-max"
 					>
 						{shortenedUrl.url}
 					</Link>
-					<p className="hidden md:block flex-1 text-gray-500">
+					<p className="text-sm hidden md:block flex-1 text-gray-500">
 						{shortenedUrl.origin}
 					</p>
 
@@ -57,8 +53,8 @@ const ShortenedUrl = ({
 						<Image
 							src="edit.svg"
 							alt="edit"
-							width={25}
-							height={25}
+							width={20}
+							height={20}
 							className="cursor-pointer"
 						/>
 						<Delete id={shortenedUrl.id} />
@@ -90,7 +86,7 @@ const ShortenedUrl = ({
 					{/* <MobileDots id={shortenedUrlFromLS.url} url={shortenedUrlFromLS.url} /> */}
 				</>
 			)}
-		</MotionDiv>
+		</div>
 	)
 }
 

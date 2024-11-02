@@ -75,11 +75,11 @@ const SignInPage = () => {
 	return (
 		<div className="mx-auto xl:w-[40%] h-screen flex items-center justify-center">
 			<div className="relative z-10 max-w-[600px] py-10 rounded-[2rem] bg-white shadow-xl flex flex-col lg:w-max h-max md:py-28 px-8 xl:px-28">
-				<h2 className="text-[2rem] md:text-[3rem] font-medium text-gray-tiny text-center mb-[2rem] md:mb-[6rem]">
+				<h2 className="text-2xl md:text-[2.5rem] font-medium text-gray-tiny text-center mb-[1rem] md:mb-[4rem]">
 					Welcome <span className="text-blue-default font-bold">back</span>
 				</h2>
 
-				<form className="flex flex-col gap-8" onSubmit={handleSubmit(onSubmit)}>
+				<form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
 					<Input
 						{...register("email")}
 						placeholder="Email*"
@@ -87,7 +87,7 @@ const SignInPage = () => {
 					/>
 					<PasswordInput register={register} />
 
-					<p className="text-center">
+					<p className="text-center text-sm">
 						Does not have an account yet?{" "}
 						<Link href="/sign-up" className="text-blue-dark hover:underline">
 							Sign up
@@ -97,7 +97,7 @@ const SignInPage = () => {
 					<div className="flex itmes-center gap-4">
 						<button
 							type="submit"
-							className={`flex-1 px-5 py-2 rounded-md text-xl mt-2 md:mt-6 transition-all duration-300 ${
+							className={`flex-1 px-5 py-2 rounded-md text-md mt-2 md:mt-6 transition-all duration-300 ${
 								!isValid
 									? "bg-gray-400 text-gray-200 cursor-not-allowed"
 									: "bg-blue-default text-white hover:bg-blue-dark"
@@ -108,10 +108,10 @@ const SignInPage = () => {
 						</button>
 						<Link
 							href="/"
-							className=" flex items-center gap-2 px-5 py-2 rounded-md text-xl mt-2 md:mt-6 border border-black hover:bg-blue-default hover:text-white group transition-colors duration-200 hover:border-white"
+							className=" flex items-center gap-2 px-5 py-1 rounded-md text-md mt-2 md:mt-6 border border-black hover:bg-blue-default hover:text-white group transition-colors duration-200 hover:border-white"
 						>
 							<span>Demo</span>
-							<RightArrowIcon className="w-10 h-10 fill-black group-hover:fill-white group-hover:translate-x-2 transition-all duration-200" />
+							<RightArrowIcon className="w-8 h-8 fill-black group-hover:fill-white group-hover:translate-x-2 transition-all duration-200" />
 						</Link>
 					</div>
 				</form>

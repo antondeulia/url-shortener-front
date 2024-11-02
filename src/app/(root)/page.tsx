@@ -10,26 +10,30 @@ import SignedOut from "@/components/SignedOut"
 const HomePage = () => {
 	return (
 		<section>
-			<div className="max-w-[1000px] mx-auto mt-10 relative z-10">
-				<h1 className="text-[3rem] font-black text-blue-light text-center">
-					Short URL
-				</h1>
-
-				<div className="bg-white shadow-md mt-[1.5rem] py-[1.2rem] px-[1rem] md:px-[5.5rem]">
-					<h2 className="text-[2.25rem] text-gray-bold font-bold text-center">
-						Paste the URL to be shortened
-					</h2>
-
-					<CreateForm />
-
-					<p className="text-center max-w-[550px] mt-[1.5rem] mx-auto text-[1.1rem]">
-						ShortURL is a free tool to shorten URLs and generate short links
-						URL shortener allows to create a shortened link making it easy to
-						share
-					</p>
+			<div className="max-w-[1000px] mx-auto mt-10 relative z-10 pt-10 md:pt-0">
+				<div className="hidden md:block text-[2.5rem] font-black text-blue-light text-center">
+					Welcome to Short URL
 				</div>
 
-				<List />
+				<SignedIn>
+					<div className="bg-white shadow-md mt-[1.5rem] py-[1.2rem] px-[1rem] md:px-[5.5rem]">
+						<h2 className="text-[1.6rem] text-gray-bold font-bold text-center">
+							Paste the URL to be shortened
+						</h2>
+
+						<CreateForm />
+
+						<p className="text-center max-w-[550px] mt-[1.5rem] mx-auto text-sm text-gray-700">
+							ShortURL is a free tool to shorten URLs and generate short
+							links URL shortener allows to create a shortened link making
+							it easy to share
+						</p>
+					</div>
+				</SignedIn>
+
+				<SignedIn>
+					<List />
+				</SignedIn>
 
 				<SignedOut>
 					<WantMore />

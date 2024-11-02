@@ -13,14 +13,14 @@ const Input: React.FC<InputProps> = ({ errors, ...props }) => {
 				}`}
 				style={{
 					width: "100%",
-					padding: "14px",
-					fontSize: "19px",
+					padding: "8px",
+					fontSize: "16px",
 					borderRadius: "4px"
 				}}
 				{...props}
 			/>
 			{errors && (
-				<span className="text-red-500 absolute top-[59px] left-0">
+				<span className="text-red-500 absolute top-[45px] left-0 text-xs">
 					{errors.message}
 				</span>
 			)}{" "}
