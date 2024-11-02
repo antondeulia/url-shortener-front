@@ -6,7 +6,8 @@ import { create } from "zustand"
 
 type ShortenedUrlsStore = {
 	shortenedUrls: IShortenedUrl[]
-	shortenedUrlsFromLs: any[]
+	shortenedUrlsFromLs: IShortenedUrl[]
+
 	setShortenedUrls: (data: IShortenedUrl[]) => void
 	addShortenedUrl: (data: IShortenedUrl) => void
 	deleteShortenedUrl: (id: number) => void
@@ -48,16 +49,25 @@ export const useShortenedUrlsStore = create<ShortenedUrlsStore>(set => ({
 		}
 	},
 	addShortenedUrlFromLs: (newUrl: any) =>
-		set(state => ({
-			shortenedUrlsFromLs: [...state.shortenedUrlsFromLs, newUrl]
-		})),
-	getShortenedUrlsFromLs: () =>
-		set(() => {
-			const shortenedUrls = localStorage
-				.getItem("shortenedUrls")
-				?.split(" ")
-				.map(url => JSON.parse(url))
+		set(state => {
+			return {
+				shortenedUrlsFromLs: [...(state.shortenedUrlsFromLs || []), newUrl]
+			}
+		}),
+	getShortenedUrlsFromLs: () => {
+		const shortenedUrls = localStorage
+			.getItem("shortenedUrls")
+			?.split(" ")
+			.map(url => JSON.parse(url))
 
-			return { shortenedUrlsFromLs: shortenedUrls }
+		set(state => {
+			if (
+				JSON.stringify(state.shortenedUrlsFromLs) !==
+				JSON.stringify(shortenedUrls)
+			) {
+				return { shortenedUrlsFromLs: shortenedUrls }
+			}
+			return state
 		})
+	}
 }))
