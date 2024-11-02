@@ -76,6 +76,29 @@ const CreateForm = () => {
 			}
 
 			addShortenedUrlLs(shortenedUrlLs)
+
+			const res = await fetchWithAuth(
+				process.env.NEXT_PUBLIC_BACKEND_URL as string,
+				{
+					method: "POST",
+					body: JSON.stringify(formData)
+				}
+			)
+
+			if (res.status === 201) {
+				const newUrlData = await res.json()
+				addShortenedUrl(newUrlData)
+
+				toast.success("Item was created successfully")
+				reset()
+				clearErrors()
+			} else {
+				const error = await res.json()
+
+				error?.message?.map((message: string) => {
+					toast.error(message)
+				})
+			}
 		}
 
 		setIsLoading(false)
