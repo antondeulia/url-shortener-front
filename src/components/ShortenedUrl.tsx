@@ -12,27 +12,14 @@ type ShortenedUrlProps = {
 	code: string
 }
 
-type ShortenedUrlFromLSProps = {
-	id: number
-	url: string
-	origin: string
-}
-
 const ShortenedUrl = ({
 	shortenedUrl,
-	shortenedUrlFromLS,
 	index
 }: {
 	shortenedUrl?: ShortenedUrlProps
-	shortenedUrlFromLS?: ShortenedUrlFromLSProps
 	index: number
 }) => {
-	// @ts-ignore
 	const backgroundColorClass = index % 2 === 0 ? "bg-gray-100" : "bg-white"
-
-	if (typeof shortenedUrlFromLS === "string") {
-		shortenedUrlFromLS = JSON.parse(shortenedUrlFromLS)
-	}
 
 	return (
 		<div className={`flex items-center ${backgroundColorClass} py-2 px-4 relative`}>
@@ -62,29 +49,6 @@ const ShortenedUrl = ({
 					</div>
 
 					<MobileDots id={shortenedUrl.id} url={shortenedUrl.url} />
-				</>
-			)}
-
-			{shortenedUrlFromLS && (
-				<>
-					<Link
-						target="_blank"
-						href={`${shortenedUrlFromLS.url}`}
-						className="flex flex-1 gap-2 items-center text-blue-default hover:underline w-max"
-					>
-						{shortenedUrlFromLS.url}
-					</Link>
-
-					<p className="hidden md:block flex-1 text-gray-500">
-						{shortenedUrlFromLS.origin}
-					</p>
-
-					<div className="hidden md:flex flex-2 gap-5 items-center">
-						<Copy url={shortenedUrlFromLS.url} />
-						{/* <Delete id={shortenedUrlFromLS.url} /> */}
-					</div>
-
-					{/* <MobileDots id={shortenedUrlFromLS.url} url={shortenedUrlFromLS.url} /> */}
 				</>
 			)}
 		</div>

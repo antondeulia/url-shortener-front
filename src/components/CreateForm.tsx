@@ -29,40 +29,29 @@ const CreateForm = () => {
 		reValidateMode: "onBlur"
 	})
 
-	const open = useShortenedUrlsStore(state => state.open)
-
 	const onSubmit = async (formData: any) => {
 		setIsLoading(true)
 
-		if (localStorage.getItem("accessToken")) {
-			const res = await fetchWithAuth(
-				process.env.NEXT_PUBLIC_BACKEND_URL as string,
-				{
-					method: "POST",
-					body: JSON.stringify(formData)
-				}
-			)
+		const res = await fetchWithAuth(process.env.NEXT_PUBLIC_BACKEND_URL as string, {
+			method: "POST",
+			body: JSON.stringify(formData)
+		})
 
-			if (res.status === 201) {
-				const newUrlData = await res.json()
-				addShortenedUrl(newUrlData)
+		console.log(formData)
 
-				toast.success("Item was created successfully")
-				reset()
-				clearErrors()
-			} else {
-				const error = await res.json()
+		if (res.status === 201) {
+			const newUrlData = await res.json()
+			addShortenedUrl(newUrlData)
 
-				error?.message?.map((message: string) => {
-					toast.error(message)
-				})
-			}
+			toast.success("Item was created successfully")
+			reset()
+			clearErrors()
 		} else {
-			const uniqueCode = generateRandomString(6)
-			const newShortenedUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/${uniqueCode}`
+			const error = await res.json()
 
-			console.log("hello")
-			open()
+			error?.message?.map((message: string) => {
+				toast.error(message)
+			})
 		}
 
 		setIsLoading(false)
