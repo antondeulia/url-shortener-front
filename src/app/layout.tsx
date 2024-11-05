@@ -4,6 +4,7 @@ import { Asap } from "next/font/google"
 import "./globals.css"
 import "react-toastify/dist/ReactToastify.css"
 import { ToastContainer } from "react-toastify"
+import CookieConsent from "../components/CookieConsent"
 
 const asap = Asap({ subsets: ["latin"], weight: ["400", "700", "900"] })
 
@@ -20,6 +21,8 @@ export default function Layout({
 		<html lang="en">
 			<body className={asap.className}>
 				{children}
+
+				<CookieConsent />
 
 				<ToastContainer
 					position="top-right"
